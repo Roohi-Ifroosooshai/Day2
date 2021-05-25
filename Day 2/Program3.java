@@ -1,4 +1,6 @@
 
+
+
 import java.util.*;
 
 class Player implements Comparable<Player> {     
@@ -24,9 +26,18 @@ class Player implements Comparable<Player> {
     return game;     
   } 
   
-    public int compareTo(Player p) {
-	return game.compareTo(p.getGame());
-  }
+    public int compareTo(Player p)
+    {
+        if (age == p.getAge()) {
+            return 0;
+        }
+        else if (game.compareTo(p.getGame()) < 0) {
+            return -1;
+        }
+        else
+            return 1;
+    }
+    
  
   public String toString() {         
     return " Name: " + this.name + ", age:" + this.age + ", Game: " + this.game;     
@@ -37,19 +48,17 @@ class Player implements Comparable<Player> {
 public class Program3 {
     public static void main(String[] args) throws Exception
     {  
-        Player player1 = new Player("John", 26, "Football");         
-        Player player2 = new Player("Mart", 23, "Tennis");         
-        Player player3 = new Player("Hulk", 20, "Cricket");        
+        TreeSet<Player> players = new TreeSet<>();
         
-        Comparator<Player> gameComparator = Comparator.comparing(Player::getGame);
+        players.add(new Player("John", 30, "Football"));
+        players.add(new Player("Bob", 28, "Basketball"));
+        players.add(new Player("Mark", 38, "Basketball"));
         
-    	TreeSet<Player> myTreeSet = new TreeSet<>(gameComparator);
-    	myTreeSet.addAll(Arrays.asList(player1, player2, player3));
-    	System.out.println("Players Sorted");
-    	
-    	myTreeSet = new TreeSet<>();
-    	myTreeSet.addAll(Arrays.asList(player1, player2, player3));
-    	myTreeSet.forEach(p -> System.out.println(p));
+        for (Player p : players) {
+            System.out.println(p);
+        }
      
     }
 }
+
+
