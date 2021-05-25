@@ -1,5 +1,4 @@
 
-
 import java.io.Serializable;
 import java.io.File; 
 import java.io.FileInputStream; 
@@ -60,7 +59,7 @@ class Order implements Serializable {
     } 
     
     public String toString() { 
-        return  "OrderId: " + orderId + "\nProductName:" + productName + "\nCustomerName: " + customerName; 
+        return  "OrderId: " + orderId + "\nProductName:" + productName ; 
     } 
     
 }
