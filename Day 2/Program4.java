@@ -1,4 +1,5 @@
 
+
 import java.io.Serializable;
 import java.io.File; 
 import java.io.FileInputStream; 
@@ -49,7 +50,7 @@ class Order implements Serializable {
     private static final long serialVersionUID = 1L; 
     private int orderId;
     private String productName; 
-    private String customerName; 
+    private transient String customerName; 
     Order() { 
     }; 
     Order(int orderId, String productName, String customerName) { 
@@ -59,7 +60,7 @@ class Order implements Serializable {
     } 
     
     public String toString() { 
-        return  "OrderId: " + orderId + "\nProductName:" + productName ; 
+        return  "OrderId: " + orderId + "\nProductName:" + productName + "\ncustomerName:" +customerName; 
     } 
     
 }
