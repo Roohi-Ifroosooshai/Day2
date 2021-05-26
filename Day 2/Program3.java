@@ -1,5 +1,4 @@
 
-
 import java.util.*;
 
 class Player implements Comparable<Player> {     
@@ -30,7 +29,8 @@ class Player implements Comparable<Player> {
     
         if (game.compareTo(p.getGame()) < 0) {
             if(age == p.getAge()){
-                return 1;
+                int c = ((Player)p).getAge();
+                return this.age - c;
             }
             return -1;
             }
@@ -55,7 +55,7 @@ public class Main {
         players.add(new Player("Bob", 28, "Basketball"));
         players.add(new Player("Mary", 37, "Tennis"));
         players.add(new Player("Mark", 36, "Basketball"));
-        
+      
         for (Player p : players) {
             System.out.println(p);
         }
