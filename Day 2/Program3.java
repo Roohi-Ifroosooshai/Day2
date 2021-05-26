@@ -1,6 +1,5 @@
 
 
-
 import java.util.*;
 
 class Player implements Comparable<Player> {     
@@ -28,37 +27,37 @@ class Player implements Comparable<Player> {
   
     public int compareTo(Player p)
     {
-        if (age == p.getAge()) {
-            return 0;
-        }
-        else if (game.compareTo(p.getGame()) < 0) {
+    
+        if (game.compareTo(p.getGame()) < 0) {
+            if(age == p.getAge()){
+                return 1;
+            }
             return -1;
-        }
-        else
+            }
+        else{
             return 1;
+        }
+        
     }
     
- 
   public String toString() {         
     return " Name: " + this.name + ", age:" + this.age + ", Game: " + this.game;     
   } 
 }
 
 
-public class Program3 {
+public class Main {
     public static void main(String[] args) throws Exception
     {  
         TreeSet<Player> players = new TreeSet<>();
         
         players.add(new Player("John", 30, "Football"));
         players.add(new Player("Bob", 28, "Basketball"));
-        players.add(new Player("Mark", 38, "Basketball"));
+        players.add(new Player("Mary", 37, "Tennis"));
+        players.add(new Player("Mark", 36, "Basketball"));
         
         for (Player p : players) {
             System.out.println(p);
         }
-     
     }
 }
-
-
